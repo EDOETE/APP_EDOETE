@@ -11,9 +11,9 @@ ui <- dashboardPage(
     skin = "light",
     sidebarMenu(
       menuItem("Accueil", tabName = "accueil", icon = icon("home")),
-      menuItem("Résultats globaux", tabName = "globaux", icon = icon("chart-bar")),
-      menuItem("Par sous-groupes", tabName = "groupes", icon = icon("users")),
-      menuItem("Cartographie", tabName = "carto", icon = icon("map"))
+      menuItem("Enquête", tabName = "questionnaire", icon = icon("chart-bar")),
+      menuItem("Cohortes", tabName = "generation", icon = icon("users")),
+      menuItem("À propos", tabName = "documentations", icon = icon("info-circle"))
     )
   ),
   
@@ -66,17 +66,26 @@ ui <- dashboardPage(
               )
       ),
       
-      tabItem(tabName = "globaux",
-              h2("Bienvenue sur globaux"),
+      tabItem(tabName = "generation",
+              h2("Bienvenue "),
               tabsetPanel(
-                tabPanel("Accueil", h3("Bienvenue !"), p("Ceci est l'onglet d'accueil.")),
-                tabPanel("Analyse", h3("Analyse des données"), plotOutput("plot")),
-                tabPanel("À propos", h3("Infos"), p("Créé avec amour en R Shiny."))
+                tabPanel("Cohorte 2025", h3("Analyse des données"),p("Analyse des données"),
+                         tabsetPanel(
+                         tabPanel("avant bac"),
+                         tabPanel("apres bac", h3("Analyse des données"), plotOutput("plot")),
+                         tabPanel("tableau de bords", h3("Infos"), p("graphs."))
+                
+                         
+                         
+                         
+                         )),
+                tabPanel("Cohorte 2026", h3("Analyse des données"), plotOutput("plot"))
+                
               )
       ),
       
-      tabItem(tabName = "groupes", h2("Bienvenue sur groupes")),
-      tabItem(tabName = "carto", h2("Bienvenue sur la carte"))
+      tabItem(tabName = "questionnaire", h2("Bienvenue ")),
+      tabItem(tabName = "documentations", h2("Bienvenue sur la carte"))
     )
   )
 )

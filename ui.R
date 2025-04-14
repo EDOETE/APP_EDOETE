@@ -4,7 +4,11 @@ library(bs4Dash)
 
 ui <- dashboardPage(
   header = dashboardHeader(
-    title = dashboardBrand("Enquête Terminale Embrun", color = "primary")
+    title = tags$div(
+        # Style CSS appliqué au  titre pour  centrer et la couleur de fond :
+      style = "text-align: center; width: 100%; background-color: #007bff; color: white; padding: 10px;",
+      "EDOETE"
+    )
   ),
   
   sidebar = dashboardSidebar(
@@ -18,6 +22,30 @@ ui <- dashboardPage(
   ),
   
   body = dashboardBody(
+    tags$head(
+      tags$style(HTML("
+    /* Style carousel */
+    .carousel-inner img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    /* Tous les onglets (actifs et inactifs) en gras */
+    .nav-tabs > li > a {
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    /* Effet de survol */
+    .nav-tabs > li > a:hover {
+      background-color: #e9ecef; /* gris clair au survol */
+      color: black;
+    }
+  "))
+    )
+    ,
+    
     tags$head(
       tags$style(HTML("
         .carousel-inner img {
@@ -67,25 +95,31 @@ ui <- dashboardPage(
       ),
       
       tabItem(tabName = "generation",
-              h2("Bienvenue "),
-              tabsetPanel(
-                tabPanel("Cohorte 2025", h3("Analyse des données"),p("Analyse des données"),
+              tabsetPanel( 
+                tabPanel("COHORTE 2025",
+                         
+                         h3("Analyse des données"),p("Analyse des données"),
                          tabsetPanel(
                          tabPanel("avant bac"),
                          tabPanel("apres bac", h3("Analyse des données"), plotOutput("plot")),
-                         tabPanel("tableau de bords", h3("Infos"), p("graphs."))
+                         tabPanel("tableaux de bord", h3("Infos"), p("graphs."))
                 
                          
                          
                          
                          )),
-                tabPanel("Cohorte 2026", h3("Analyse des données"), plotOutput("plot"))
+                tabPanel("COHORTE 2026", h3("Analyse des données")),
+                tabPanel("COHORTE 2027", h3("Analyse des données")),
+                tabPanel("COHORTE 2028", h3("Analyse des données")),
+                tabPanel("COHORTE 2029", h3("Analyse des données")),
+                tabPanel("COHORTE 2030", h3("Analyse des données"))
+               
                 
               )
       ),
       
       tabItem(tabName = "questionnaire", h2("Bienvenue ")),
-      tabItem(tabName = "documentations", h2("Bienvenue sur la carte"))
+      tabItem(tabName = "documentations",)
     )
   )
 )

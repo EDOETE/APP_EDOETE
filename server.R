@@ -57,8 +57,6 @@ server <- function(input, output, session) {
     )
   })
   
-
-  
   # GRAPHIQUE DESCRIPTIF
   output$descriptive <- renderPlotly({
     var <- donnees[[input$varName]]

@@ -153,7 +153,7 @@ ui <- dashboardPage(
       tabItem(tabName = "accueil",
             
               
-              # Carousel d'images
+              # Carousel d'image
               tags$div(
                 id = "myCarousel",
                 class = "carousel slide",

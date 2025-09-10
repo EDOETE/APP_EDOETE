@@ -9,7 +9,7 @@ library(plotly)
 library(DT)
 library(rsconnect)
 library(rnaturalearthdata)
-#Chargement des données avec les bons noms de fichiers
+#Chargement des données 
 #rsconnect::deployApp()
 donnees <- read_excel("data_in/opale_2024.xlsx")
 donnees_2025 <- read_excel("data_in/opale_2025.xlsx")

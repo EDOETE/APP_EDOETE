@@ -1,0 +1,10 @@
+name: edoete
+title:
+username: opale
+account: opale
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 15176261
+bundleId: 10883654
+url: https://opale.shinyapps.io/edoete/
+version: 1
